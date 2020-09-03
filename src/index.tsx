@@ -12,6 +12,7 @@ export type PropsWithStoreType = {
 }
 
 const App  : React.FC<PropsWithStoreType> = ({store}) =>  {
+    document.title = 'Todo list App'
     return (
         <div className="App">
             <Header store={store}/>
