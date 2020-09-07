@@ -1,0 +1,67 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/button-has-type": "off",
+        "react/jsx-curly-newline" : "off",
+        "nonblock-statement-body-position" : "off",
+        "curly": "off",
+        "react/destructuring-assignment": "off",
+        "no-unused-vars" : "off",
+        "react/jsx-closing-bracket-location" : "off",
+        "react/jsx-closing-tag-location": "off",
+        "react/jsx-first-prop-new-line": "off",
+        "react/jsx-max-props-per-line": "off",
+        "react/jsx-wrap-multilines" : "off",
+        "jsx-a11y/control-has-associated-label" : "off",
+        "semi": ["error", "never"],
+        "comma-dangle": ["error", "never"],
+        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+        "lines-between-class-members" : ["error", "never"],
+        "no-plusplus": "off",
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ],
+        "react/prop-types": [
+          0,
+          { "ignore": "ignore", "customValidators": "customValidator" }
+        ],
+      "object-curly-newline" : ["error", { "multiline": true }]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    }
+
+}
