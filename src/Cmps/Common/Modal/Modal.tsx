@@ -1,26 +1,28 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
-import style from './Modal.module.css'
+import { ModalDiv, ModalSubDiv, Btn as Button } from './ModalStyledComponents'
 
 type PropsType = {
   answer: (b: boolean) => void
 }
 
-const Modal: React.FC<PropsType> = ({ answer }) => <div className={style.modBack}>
-  <div className={style.modal}>
+const Modal: React.FC<PropsType> = ({ answer }) => <ModalDiv>
+  <ModalSubDiv>
     Are you sure ?
-    <button className={`customBtn ${style.btn}`} onClick={() => {
+    <Button onClick={() => {
       answer(true)
-    }}>
+    }}
+    >
       <FontAwesomeIcon icon={faCheck} />
-    </button>
-    <button className={`customBtn ${style.btn}`} onClick={() => {
+    </Button>
+    <Button onClick={() => {
       answer(false)
-    }}>
+    }}
+    >
       <FontAwesomeIcon icon={faTimes} />
-    </button>
-  </div>
-</div>
+    </Button>
+  </ModalSubDiv>
+</ModalDiv>
 
 export default Modal

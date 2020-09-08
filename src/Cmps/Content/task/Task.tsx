@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 import { observer } from 'mobx-react'
 import { TaskI } from '../../../store/store'
-import style from './Task.module.css'
+import { TaskBlock, TaskName, TaskTimeAndBtns, TaskTime, TaskBtn as Button } from './TaskStyledComponents'
 
 type PropsType = {
   task: TaskI
@@ -41,31 +41,31 @@ class Task extends React.Component<PropsType, {}> {
       return `${days} day ${hours}:${minutes}:${seconds}`
     }
 
-    return <div className={style.task}>
+    return <TaskBlock>
       <div>
-        <span className={style.name}>{task.name ? task.name : '-'}</span>
+        <TaskName>{task.name ? task.name : '-'}</TaskName>
       </div>
-      <div className={style.timeAndBtns}>
-        <span className={style.time}>{showTime()}</span>
+      <TaskTimeAndBtns>
+        <TaskTime>{showTime()}</TaskTime>
         {task.lastStartTime > 0
-          ? <button type="button" className={`customBtn ${style.btn}`} onClick={() => {
+          ? <Button onClick={() => {
             stop(task.id)
           }}>
             <FontAwesomeIcon icon={faStop} />
-          </button>
-          : <button type="button" className={`customBtn ${style.btn}`} onClick={() => {
+          </Button>
+          : <Button onClick={() => {
             start(task.id)
           }}>
             <FontAwesomeIcon icon={faPlay} />
-          </button>
+          </Button>
         }
-        <button type="button" className={`customBtn ${style.btn}`} onClick={() => {
+        <Button onClick={() => {
           remove(task.id)
         }}>
           <FontAwesomeIcon icon={faTrash} />
-        </button>
-      </div>
-    </div>
+        </Button>
+      </TaskTimeAndBtns>
+    </TaskBlock>
   }
 }
 

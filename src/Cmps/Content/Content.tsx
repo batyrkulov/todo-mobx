@@ -1,10 +1,18 @@
 import React from 'react'
 import { observer } from 'mobx-react'
+import styled from 'styled-components'
 import Task from './task/Task'
 import Modal from '../Common/Modal/Modal'
 import { PropsWithStoreType } from '../../index'
 import style from './Content.module.css'
 import { storeType } from '../../store/store'
+
+const ContentDiv = styled.div`
+  grid-area: con;
+  text-align: center;
+  padding: 15px;
+  margin-top: 60px;
+`
 
 type StateType = {
   showModal: boolean
@@ -33,11 +41,11 @@ class Content extends React.Component<PropsWithStoreType, StateType> {
     if (yesOrNo) this.store.deleteTask(this.state.removeID)
   }
   render() {
-    return <div className={style.content}>
+    return <ContentDiv className={style.content}>
       {this.store.tasks.map((task) => <Task key={task.id} task={task} start={this.store.startTask}
         stop={this.store.stopTask} remove={this.remove} />)}
       {this.state.showModal && <Modal answer={this.removeConfirmedByModal} />}
-    </div>
+    </ContentDiv>
   }
 }
 
